@@ -87,7 +87,7 @@ module.exports.render = function(config)
     {
         var writeCallback;
         var result;
-
+        
         if(outputType === this.OutputType.File)
         {
             if(outputSplitting === this.FileSplitting.AllInOne)

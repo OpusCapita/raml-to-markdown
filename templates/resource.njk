@@ -24,6 +24,10 @@
 {% set headers=method.headers %}
 {% include "./headers.njk" %}
 {% endif %}
+
+{% set schemas=method.body %}
+{% include "./schemas.njk" %}
+
 {% for response in method.responses %}
 ### Response code: {{ response.code }}
 
