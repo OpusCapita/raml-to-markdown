@@ -1,0 +1,10 @@
+{% for schema in schemas %}
+#### {{ schema.displayName }}{% if schema.key %} ({{ schema.key }}) {% endif %}
+{{ schema.description }}
+
+{% for example in schema.examples %}```
+{{ example.value }} ```
+{% endfor %}
+
+{% set properties=schema.properties %}{% include "./properties.njk" %}
+{% endfor %}

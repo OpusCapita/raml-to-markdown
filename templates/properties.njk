@@ -1,0 +1,8 @@
+| Name | Type | Description | Required | Pattern |
+|:-----|:----:|:------------|:--------:|--------:|
+{% for prop in properties %}| {{ prop.displayName }} | {{ prop.type }} | {{ prop.description }} | {{ prop.required }} | {{ prop.pattern }} |
+{% endfor %}
+
+{% for prop in properties %}
+{% if prop.properties %}{% set properties=prop.properties %}{% include "./properties.njk" %}{% endif %}
+{% endfor %}
