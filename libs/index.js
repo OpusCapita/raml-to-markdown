@@ -83,11 +83,13 @@ module.exports.render = function(config)
     var outputType = config.output.type;
     var outputSplitting = config.output.file.splitting;
 
+    nunjucks.configure(pathJs.dirname(templateFile));
+
     return this.parse(config).then(files =>
     {
         var writeCallback;
         var result;
-        
+
         if(outputType === this.OutputType.File)
         {
             if(outputSplitting === this.FileSplitting.AllInOne)
