@@ -83,7 +83,7 @@ module.exports.render = function(config)
     var outputType = config.output.type;
     var outputSplitting = config.output.file.splitting;
 
-    nunjucks.configure(pathJs.dirname(templateFile));
+    nunjucks.configure(pathJs.dirname(templateFile), { autoescape : false });
 
     return this.parse(config).then(files =>
     {

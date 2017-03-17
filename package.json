@@ -1,6 +1,6 @@
 {
   "name": "raml-to-markdown",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Create Markdown documentation out of RAML service definitions.",
   "dependencies": {
     "commander": "^2.9.0",
