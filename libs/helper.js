@@ -52,6 +52,10 @@ module.exports.listFiles = function(path, recursive, filter)
             results = fs.readdirSync(fullPath).map(item => pathJs.join(fullPath, item));
         }
     }
+    else if(!stats)
+    {
+        throw new Error('Path does not exist: ' + fullPath);
+    }
 
-    return (filter && results.filter(item => filter.test(item))) || results;
+    return (filter && results.filter(item => filter(item))) || results;
 }

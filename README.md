@@ -1,4 +1,5 @@
 # raml-to-markdown
+[![Coverage Status](https://coveralls.io/repos/github/OpusCapita/raml-to-markdown/badge.svg)](https://coveralls.io/github/OpusCapita/raml-to-markdown)
 
 RAML to Markdown is a simple tool to create documentations out of RAML service definitions. Its output is template based to enable developers to change the output structure, style or even the output type e.g. by creating html [templates](#templating).
 
@@ -86,7 +87,7 @@ This module uses [Nunjucks](https://www.npmjs.com/package/nunjucks) in order to 
        paths : [ ],
        recursive : false,
        fileFilter : new RegExp('\.raml$'),
-       templateFile : 'templates/index.njk',
+       templateFile : './templates/index.njk',
        contentFilter : null
    },
    output : {

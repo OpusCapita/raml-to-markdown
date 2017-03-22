@@ -36,7 +36,7 @@ module.exports.FileSplitting = {
  * @prop {object} input - Input configuration.
  * @prop {array} input.paths - A list of source paths to look for RAML files. This may contain files and directories.
  * @prop {boolean} input.recursive - Whenever to walk recursively through proviced directory paths.
- * @prop {RegExp} input.fileFilter - Regular Expression for more advanced filtering of files and directories to include.
+ * @prop {RegExp} input.fileFilter - Regular Expression or function for more advanced filtering of files and directories to include.
  * @prop {string} input.templateFile - Nunjucks template file used to create templated output.
  * @prop {string} input.contentFilter - Provides a pre-render content filter.
  * @prop {object} output - Output configuration.
@@ -151,7 +151,12 @@ module.exports.parse = function(config)
 
     helper.each(config.input.paths, path =>
     {
-        var files = helper.listFiles(path, config.input.recursive, config.input.fileFilter);
+        var fileFilter = config.input.fileFilter;
+
+        if(typeof fileFilter === 'object')
+            fileFilter = (path) => config.input.fileFilter.test(path);
+
+        var files = helper.listFiles(path, config.input.recursive, fileFilter);
         var promises = Promise.all(helper.map(files, file => raml2obj.parse(file)));
 
         allPromises.push(promises);
