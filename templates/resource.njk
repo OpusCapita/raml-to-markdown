@@ -30,6 +30,7 @@
 
 {% for response in method.responses %}
 ### Response code: {{ response.code }}
+{{ response.description }}
 
 {% if response.headers %}
 ###### Headers
