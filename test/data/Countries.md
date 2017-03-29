@@ -39,6 +39,7 @@ List of `Country` objects index by the id of a country.
 }
  ```
 
+##### *CountryMap*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 | // | object | Object representing a single country item. | true |  |
@@ -84,6 +85,7 @@ Object representing a single country item.
 }
  ```
 
+##### *Country*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 | id | string | Two character country codes. | true | \w{2} |
@@ -93,6 +95,7 @@ Object representing a single country item.
 | countryCode | string | Internation phone dial country code. | true |  |
 
 ### Response code: 404
+Sent if no object for the passed `id` was found.
 
 #### Error (application/json) 
 
@@ -102,6 +105,7 @@ Object representing a single country item.
 }
  ```
 
+##### *Error*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 | message | string |  | true |  |

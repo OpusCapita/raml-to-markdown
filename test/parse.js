@@ -10,4 +10,10 @@ describe('Parsing', () =>
             .then(results => assert.equal(JSON.stringify(results), fs.readFileSync('./test/data/parsed.txt', 'utf8')))
             .then(() => done());
     });
+
+    it('parse() error #1', (done) =>
+    {
+        raml2md.parse({ input : { paths : [ './test/InVaLiD' ] } })
+            .finally(() => done());
+    });
 });

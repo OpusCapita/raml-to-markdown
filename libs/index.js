@@ -4,6 +4,7 @@ const raml2obj = require('raml2obj');
 const nunjucks = require('nunjucks');
 const pathJs = require('path');
 const fs = require('fs');
+const Promise = require('bluebird');
 const helper = require('./helper.js');
 
 /**
@@ -151,20 +152,38 @@ module.exports.parse = function(config)
 
     helper.each(config.input.paths, path =>
     {
-        var fileFilter = config.input.fileFilter;
+        try
+        {
+            var fileFilter = config.input.fileFilter;
 
-        if(typeof fileFilter === 'object')
-            fileFilter = (path) => config.input.fileFilter.test(path);
+            if(typeof fileFilter === 'object')
+                fileFilter = (path) => config.input.fileFilter.test(path);
 
-        var files = helper.listFiles(path, config.input.recursive, fileFilter);
-        var promises = Promise.all(helper.map(files, file => raml2obj.parse(file)));
+            var files = helper.listFiles(path, config.input.recursive, fileFilter);
+            var promises = Promise.all(helper.map(files, file => raml2obj.parse(file)));
 
-        allPromises.push(promises);
+            allPromises.push(promises);
+        }
+        catch(e)
+        {
+            allPromises.push([ Promise.reject(e) ]);
+        }
     });
 
     return Promise.all(allPromises).then(items =>
     {
         var relaxed = helper.unwindArray(items);
-        return (contentFilter && relaxed.map(contentFilter)) || relaxed;
+        relaxed = (contentFilter && relaxed.map(contentFilter)) || relaxed;
+
+        var deepKeys = [ 'resources', 'methods', 'responses', 'body' ];
+        helper.recursiveEach(relaxed, deepKeys, body =>
+        {
+            var props = body.properties || body.items.properties;
+
+            if(props)
+                props.sort((a, b) => a.displayName.localeCompare(b.displayName));
+        });
+
+        return relaxed;
     });
 }

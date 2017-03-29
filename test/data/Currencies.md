@@ -39,6 +39,7 @@ List of `Currency` objects index by the id of a currency.
 }
  ```
 
+##### *CurrencyMap*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 | // | object | Object representing a single currency item. | true |  |
@@ -84,6 +85,7 @@ Object representing a single currency item.
 }
  ```
 
+##### *Currency*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 | id | string | Three character identifier of a currency. | true | \w{3} |
@@ -93,6 +95,7 @@ Object representing a single currency item.
 | symbol | string | UTF-8 symbol of a currency. | true |  |
 
 ### Response code: 404
+Sent if no object for the passed `id` was found.
 
 #### Error (application/json) 
 
@@ -102,6 +105,7 @@ Object representing a single currency item.
 }
  ```
 
+##### *Error*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 | message | string |  | true |  |

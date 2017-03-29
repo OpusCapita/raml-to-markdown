@@ -33,6 +33,7 @@ List of `Language` objects index by the id of a language.
 }
  ```
 
+##### *LanguageMap*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 | // | object |  | true |  |
@@ -71,12 +72,14 @@ Single `Language` object.
 }
  ```
 
+##### *Language*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 | id | string |  | true | \w{2,3} |
 | name | string |  | true |  |
 
 ### Response code: 404
+Sent if no object for the passed `id` was found.
 
 #### Error (application/json) 
 
@@ -86,6 +89,7 @@ Single `Language` object.
 }
  ```
 
+##### *Error*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
 | message | string |  | true |  |

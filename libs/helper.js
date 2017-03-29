@@ -9,6 +9,20 @@ module.exports.each = function(items, callback)
         callback(items[key], key);
 }
 
+module.exports.recursiveEach = function(items, keys, callback)
+{
+    if(keys && keys.length)
+    {
+        for(var i in items)
+            this.recursiveEach(items[i][keys.shift()], keys, callback);
+    }
+    else
+    {
+        for(var i in items)
+            callback(items[i], i);
+    }
+}
+
 module.exports.map = function(items, callback)
 {
     var results = [ ];
