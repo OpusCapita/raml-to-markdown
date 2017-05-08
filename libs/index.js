@@ -178,7 +178,7 @@ module.exports.parse = function(config)
         var deepKeys = [ 'resources', 'methods', 'responses', 'body' ];
         helper.recursiveEach(relaxed, deepKeys, body =>
         {
-            var props = body.properties || body.items.properties;
+            var props = body && (body.properties || body.items.properties);
 
             if(props)
                 props.sort((a, b) => a.displayName.localeCompare(b.displayName));
