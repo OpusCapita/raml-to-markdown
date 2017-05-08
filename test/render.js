@@ -11,7 +11,7 @@ describe('Render', () =>
     {
         raml2md.render({ input : { paths : [ './test/input' ] } })
             .then(result => assert.equal(JSON.stringify(result), fs.readFileSync('./test/data/rendered.txt', 'utf8')))
-            .then(() => done());
+            .finally(() => done());
     });
 
     it('render() #2', (done) =>
@@ -27,7 +27,7 @@ describe('Render', () =>
             }
         })
 
-        result.then(() => done());
+        result.finally(() => done());
     });
 
     it('render() #3', (done) =>
@@ -54,7 +54,7 @@ describe('Render', () =>
 
             assert.equal(JSON.stringify(outContent), testContent);
         })
-        .then(() => done());
+        .finally(() => done());
     });
 
     it('render() #4', (done) =>
@@ -93,6 +93,6 @@ describe('Render', () =>
             helper.listFiles(outPath).forEach(file => fs.unlinkSync(file));
             fs.rmdirSync(outPath);
         })
-        .then(() => done());
+        .finally(() => done());
     });
 });

@@ -13,7 +13,9 @@ describe('Parsing', () =>
 
     it('parse() error #1', (done) =>
     {
+        var error;
+
         raml2md.parse({ input : { paths : [ './test/InVaLiD' ] } })
-            .finally(() => done());
+            .catch(e => error = e).finally(() => { assert.notEqual(error, undefined); done() });
     });
 });

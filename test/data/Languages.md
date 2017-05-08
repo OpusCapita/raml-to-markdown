@@ -14,7 +14,7 @@ List of `Language` objects index by the id of a language.
 
 | Name | Type | Description | Required | Examples |
 |:-----|:----:|:------------|:--------:|---------:|
-| Accept-Language | string | Header containing a sorted list of accepted languages. | false | ``` de, en-gb;q=0.8, en;q=0.7 ``` 
+| Accept-Language | string | Header containing a sorted list of accepted languages. | false | ``` de, en-gb;q=0.8, en;q=0.7 ```  |
 
 ### Response code: 200
 
@@ -59,7 +59,7 @@ Single `Language` object.
 
 | Name | Type | Description | Required | Examples |
 |:-----|:----:|:------------|:--------:|---------:|
-| Accept-Language | string | Header containing a sorted list of accepted languages. | false | ``` de, en-gb;q=0.8, en;q=0.7 ``` 
+| Accept-Language | string | Header containing a sorted list of accepted languages. | false | ``` de, en-gb;q=0.8, en;q=0.7 ```  |
 
 ### Response code: 200
 

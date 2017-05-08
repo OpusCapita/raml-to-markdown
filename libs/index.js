@@ -148,9 +148,8 @@ module.exports.parse = function(config)
     config = extend(true, { }, this.DefaultConfig, config);
 
     var contentFilter = config.input.contentFilter;
-    var allPromises = [ ];
 
-    helper.each(config.input.paths, path =>
+    return Promise.all(helper.map(config.input.paths, path =>
     {
         try
         {
@@ -160,17 +159,15 @@ module.exports.parse = function(config)
                 fileFilter = (path) => config.input.fileFilter.test(path);
 
             var files = helper.listFiles(path, config.input.recursive, fileFilter);
-            var promises = Promise.all(helper.map(files, file => raml2obj.parse(file)));
+            return Promise.all(helper.map(files, file => raml2obj.parse(file)));
 
-            allPromises.push(promises);
         }
         catch(e)
         {
-            allPromises.push([ Promise.reject(e) ]);
+            return Promise.reject(e);
         }
-    });
-
-    return Promise.all(allPromises).then(items =>
+    }))
+    .then(items =>
     {
         var relaxed = helper.unwindArray(items);
         relaxed = (contentFilter && relaxed.map(contentFilter)) || relaxed;
@@ -178,7 +175,8 @@ module.exports.parse = function(config)
         var deepKeys = [ 'resources', 'methods', 'responses', 'body' ];
         helper.recursiveEach(relaxed, deepKeys, body =>
         {
-            var props = body && (body.properties || body.items.properties);
+
+            var props = body.properties || body.items.properties;
 
             if(props)
                 props.sort((a, b) => a.displayName.localeCompare(b.displayName));
