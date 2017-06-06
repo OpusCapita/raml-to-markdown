@@ -37,7 +37,7 @@ List of `Currency` objects index by the id of a currency.
       "symbol": "$"
   }
 }
- ```
+```
 
 ##### *CurrencyMap*:
 | Name | Type | Description | Required | Pattern |
@@ -83,7 +83,7 @@ Object representing a single currency item.
     "exponent": 2,
     "symbol": "€"
 }
- ```
+```
 
 ##### *Currency*:
 | Name | Type | Description | Required | Pattern |
@@ -103,7 +103,7 @@ Sent if no object for the passed `id` was found.
 {
     "message": "Not found!"
 }
- ```
+```
 
 ##### *Error*:
 | Name | Type | Description | Required | Pattern |

@@ -3,7 +3,8 @@
 {{ schema.description }}
 
 {% for example in schema.examples %}```
-{{ example.value }} ```
+{{ example.value | trim }}
+```
 {% endfor %}
 
 {% if schema.items %}

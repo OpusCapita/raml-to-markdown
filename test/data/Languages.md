@@ -31,7 +31,7 @@ List of `Language` objects index by the id of a language.
     "name": "English"
   }
 }
- ```
+```
 
 ##### *LanguageMap*:
 | Name | Type | Description | Required | Pattern |
@@ -70,7 +70,7 @@ Single `Language` object.
   "id": "en",
   "name": "English"
 }
- ```
+```
 
 ##### *Language*:
 | Name | Type | Description | Required | Pattern |
@@ -87,7 +87,7 @@ Sent if no object for the passed `id` was found.
 {
     "message": "Not found!"
 }
- ```
+```
 
 ##### *Error*:
 | Name | Type | Description | Required | Pattern |

@@ -37,7 +37,7 @@ List of `Country` objects index by the id of a country.
       "countryCode": "1"
   }
 }
- ```
+```
 
 ##### *CountryMap*:
 | Name | Type | Description | Required | Pattern |
@@ -83,7 +83,7 @@ Object representing a single country item.
     "name": "Euro",
     "countryCode": "49"
 }
- ```
+```
 
 ##### *Country*:
 | Name | Type | Description | Required | Pattern |
@@ -103,7 +103,7 @@ Sent if no object for the passed `id` was found.
 {
     "message": "Not found!"
 }
- ```
+```
 
 ##### *Error*:
 | Name | Type | Description | Required | Pattern |

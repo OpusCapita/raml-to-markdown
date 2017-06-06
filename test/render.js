@@ -62,7 +62,7 @@ describe('Render', () =>
         var outPath = pathjs.join(os.tmpdir(), Math.random() + '');
         fs.mkdirSync(outPath);
 
-        var result = raml2md.render({
+        raml2md.render({
             input : {
                 paths : [ './test/input' ]
             },
@@ -74,8 +74,7 @@ describe('Render', () =>
                 }
             }
         })
-
-        result.then(result =>
+        .then(result =>
         {
             var entities = [ 'Countries.md', 'Currencies.md', 'Languages.md' ];
 
