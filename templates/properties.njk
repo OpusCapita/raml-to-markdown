@@ -1,6 +1,6 @@
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-{% for prop in properties %}| {{ prop.displayName }} | {{ prop.type }} | {{ prop.description }} | {{ prop.required }} | {{ prop.pattern }} |
+{% for prop in properties %}| {{ prop.key }} | {{ prop.type if prop.key === prop.displayName else prop.displayName }} | {{ prop.description }} | {{ prop.required }} | {{ prop.pattern }} |
 {% endfor %}
 
 {% for prop in properties %}
