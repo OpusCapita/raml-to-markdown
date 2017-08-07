@@ -1,8 +1,16 @@
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-{% for prop in properties %}| {{ prop.key }} | {{ prop.type if prop.key === prop.displayName else prop.displayName }} | {{ prop.description }} | {{ prop.required }} | {{ prop.pattern }} |
+{% for prop in properties %}| {{ prop.displayName }} | {{ prop.items.displayName if prop.type === "array" }} {{ prop.type }} | {{ prop.description }} | {{ prop.required }} | {{ prop.pattern }} |
 {% endfor %}
 
 {% for prop in properties %}
-{% if prop.properties %}{% set properties=prop.properties %}{% include "./properties.njk" %}{% endif %}
+{% if prop.properties %}
+{{ prop.displayName }}:
+
+{% set properties=prop.properties %}{% include "./properties.njk" %}
+{% elif prop.items and prop.items.properties %}
+{{ prop.items.displayName }}:
+
+{% set properties=prop.items.properties %}{% include "./properties.njk" %}
+{% endif %}
 {% endfor %}
