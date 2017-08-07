@@ -1,4 +1,4 @@
 | Name | Type | Description | Required | Examples |
 |:-----|:----:|:------------|:--------:|---------:|
-{% for header in headers %}| {{ header.displayName }} | {{ header.type }} | {{ header.description }} | {{ header.required }} | {% for example in header.examples %}``` {{ example.value }} ``` {% endfor %} |
+{% for header in headers %}| {{ header.displayName }} | {{ header.type }} | {{ header.description }} | {{ header.required }} | {% for example in header.examples %}``` {{ example.value | replace("\n", " ") }} ``` {% endfor %} |
 {% endfor %}
