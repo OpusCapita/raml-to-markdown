@@ -1,6 +1,6 @@
 {
   "name": "raml-to-markdown",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Create Markdown documentation out of RAML service definitions.",
   "dependencies": {
     "bluebird": "^3.5.1",
@@ -26,8 +26,9 @@
     "raml2md": "./index.js"
   },
   "files": [
-      "templates",
-      "libs"
+    "index.js",
+    "templates",
+    "libs"
   ],
   "preferGlobal": true,
   "repository": {
