@@ -1,19 +1,19 @@
 {
   "name": "raml-to-markdown",
-  "version": "1.1.7",
+  "version": "1.1.8",
   "description": "Create Markdown documentation out of RAML service definitions.",
   "dependencies": {
-    "bluebird": "^3.5.0",
-    "commander": "^2.9.0",
-    "extend": "^3.0.0",
-    "nunjucks": "^3.0.0",
-    "raml2obj": "^5.1.0"
+    "bluebird": "^3.5.1",
+    "commander": "^2.11.0",
+    "extend": "^3.0.1",
+    "nunjucks": "^3.0.1",
+    "raml2obj": "^5.7.0"
   },
   "devDependencies": {
-    "coveralls": "^2.12.0",
-    "jsdoc-to-markdown": "^3.0.0",
-    "mocha": "^3.2.0",
-    "nyc": "^10.1.2"
+    "coveralls": "^2.13.3",
+    "jsdoc-to-markdown": "^3.0.2",
+    "mocha": "^3.5.3",
+    "nyc": "^10.3.2"
   },
   "scripts": {
     "doc": "node_modules/.bin/jsdoc2md libs/index.js > wiki/Home.md",
@@ -25,6 +25,10 @@
   "bin": {
     "raml2md": "./index.js"
   },
+  "files": [
+      "templates",
+      "libs"
+  ],
   "preferGlobal": true,
   "repository": {
     "type": "git",
