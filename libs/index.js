@@ -100,6 +100,8 @@ module.exports.render = function(config)
                     var rendered = nunjucks.render(templateFile, item);
                     return (contentFilter && contentFilter(rendered)) || rendered;
                 });
+                if(!fs.existsSync(outputPath))
+                    fs.mkdirSync(outputPath);
 
                 fs.writeFileSync(outputPath, rendered.join("\n\n\n"));
             }
@@ -114,7 +116,13 @@ module.exports.render = function(config)
                         var rendered = nunjucks.render(templateFile, item);
                         rendered = (contentFilter && contentFilter(rendered)) || rendered;
 
-                        fs.writeFileSync(pathJs.join(outputPath, res.displayName + outputExt), rendered);
+                        const filePath = pathJs.join(outputPath, res.displayName + outputExt);
+                        const fileDir = pathJs.dirname(filePath);
+
+                        if(!fs.existsSync(fileDir))
+                            fs.mkdirSync(fileDir);
+                        
+                        fs.writeFileSync(filePath, rendered);
                     });
                 });
             }
