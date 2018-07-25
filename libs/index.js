@@ -101,7 +101,7 @@ module.exports.render = function(config)
                     return (contentFilter && contentFilter(rendered)) || rendered;
                 });
                 if(!fs.existsSync(outputPath))
-                    fs.mkdirSync(outputPath);
+                    helper.mkdirp(outputPath);
 
                 fs.writeFileSync(outputPath, rendered.join("\n\n\n"));
             }
@@ -117,11 +117,10 @@ module.exports.render = function(config)
                         rendered = (contentFilter && contentFilter(rendered)) || rendered;
 
                         const filePath = pathJs.join(outputPath, res.displayName + outputExt);
-                        const fileDir = pathJs.dirname(filePath);
 
-                        if(!fs.existsSync(fileDir))
-                            fs.mkdirSync(fileDir);
-                        
+                        if(!fs.existsSync(filePath))
+                            helper.mkdirp(filePath);
+
                         fs.writeFileSync(filePath, rendered);
                     });
                 });
