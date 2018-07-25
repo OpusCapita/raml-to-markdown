@@ -78,16 +78,14 @@ module.exports.mkdirp = function(path)
 {
     let current = "";
     const subPaths = pathJs.dirname(path).split(pathJs.sep);
+    
     for(const subPath of subPaths)
     {
         current = `${current}${subPath}${pathJs.sep}`;
+        
         if(!fs.existsSync(current))
-        {
             fs.mkdirSync(current);
-        }
         else if(fs.lstatSync(current).isFile())
-        {
             throw new Error(`path '${current}' is a File.`);
-        }
     }
 };
