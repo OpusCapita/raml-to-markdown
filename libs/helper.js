@@ -74,7 +74,8 @@ module.exports.listFiles = function(path, recursive, filter)
     return (filter && results.filter(item => filter(item))) || results;
 }
 
-module.exports.mkdirp = function(path){
+module.exports.mkdirp = function(path)
+{
     let current = "";
     const subPaths = pathJs.dirname(path).split(pathJs.sep);
     for(const subPath of subPaths)
