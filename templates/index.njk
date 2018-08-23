@@ -8,8 +8,20 @@
 ---
 
 {% for resource in resources %}
+* {% if resource.displayName %}{{ resource.displayName }}{% else %}{{ resource.relativeUri }}{% endif %}{% for method in resource.methods %}
+    *{{ method.method.toUpperCase() }}{% if method.securedBy %} *(secured)*{% endif %}{% endfor %}
+{% endfor %}
+
+---
+
+{% for resource in resources %}
 ## {% if resource.displayName %}{{ resource.displayName }}{% else %}{{ resource.relativeUri }}{% endif %}
 {{ resource.description }}
+
+#### Available endpoints
+{% for resource in resources %}
+{% include "./toc.njk" %}
+{% endfor %}
 
 {% include "./resource.njk" %}
 

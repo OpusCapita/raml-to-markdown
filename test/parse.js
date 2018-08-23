@@ -8,7 +8,7 @@ describe('Parsing', () =>
     {
         raml2md.parse({ input : { paths : [ './test/input' ] } })
             .then(results => assert.equal(JSON.stringify(results), fs.readFileSync('./test/data/parsed.txt', 'utf8')))
-            .then(() => done());
+            .finally(() => done());
     });
 
     it('parse() error #1', (done) =>

@@ -2,8 +2,17 @@
 
 ---
 
+* Currencies
+    *GET
+
+---
+
 ## Currencies
 Work with `Currency` objects for all currencies in the system. All `name` properties get automatically translated by the service depending on a request's `accept-language` header.
+
+#### Available endpoints
+
+* [/currencies](currencies)* [/currencies/{id}](currenciesid)
 
 ### /currencies
 
@@ -42,15 +51,17 @@ List of `Currency` objects index by the id of a currency.
 ##### *CurrencyMap*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| // | object | Object representing a single currency item. | true |  |
+| // |  object | Object representing a single currency item. | true |  |
+
+//:
 
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| id | string | Three character identifier of a currency. | true | \w{3} |
-| name | string | Translated name of a currency. | true |  |
-| number | integer | Unique numeric representation of a currency. | true |  |
-| exponent | integer | Number of digits after a decimal point. | true |  |
-| symbol | string | UTF-8 symbol of a currency. | true |  |
+| id |  string | Three character identifier of a currency. | true | \w{3} |
+| name |  string | Translated name of a currency. | true |  |
+| number |  integer | Unique numeric representation of a currency. | true |  |
+| exponent |  integer | Number of digits after a decimal point. | true |  |
+| symbol |  string | UTF-8 symbol of a currency. | true |  |
 
 ---
 
@@ -88,11 +99,11 @@ Object representing a single currency item.
 ##### *Currency*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| id | string | Three character identifier of a currency. | true | \w{3} |
-| name | string | Translated name of a currency. | true |  |
-| number | integer | Unique numeric representation of a currency. | true |  |
-| exponent | integer | Number of digits after a decimal point. | true |  |
-| symbol | string | UTF-8 symbol of a currency. | true |  |
+| id |  string | Three character identifier of a currency. | true | \w{3} |
+| name |  string | Translated name of a currency. | true |  |
+| number |  integer | Unique numeric representation of a currency. | true |  |
+| exponent |  integer | Number of digits after a decimal point. | true |  |
+| symbol |  string | UTF-8 symbol of a currency. | true |  |
 
 ### Response code: 404
 Sent if no object for the passed `id` was found.
@@ -108,7 +119,7 @@ Sent if no object for the passed `id` was found.
 ##### *Error*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| message | string |  | true |  |
+| message |  string |  | true |  |
 
 ---
 

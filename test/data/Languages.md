@@ -2,8 +2,17 @@
 
 ---
 
+* Languages
+    *GET
+
+---
+
 ## Languages
 Work with `Language` objects for all languages in the system. All `name` properties get automatically translated by the service depending on a request's `accept-language` header.
+
+#### Available endpoints
+
+* [/languages](languages)* [/languages/{id}](languagesid)
 
 ### /languages
 
@@ -36,12 +45,14 @@ List of `Language` objects index by the id of a language.
 ##### *LanguageMap*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| // | object |  | true |  |
+| // |  object |  | true |  |
+
+//:
 
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| id | string |  | true | \w{2,3} |
-| name | string |  | true |  |
+| id |  string |  | true | \w{2,3} |
+| name |  string |  | true |  |
 
 ---
 
@@ -75,8 +86,8 @@ Single `Language` object.
 ##### *Language*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| id | string |  | true | \w{2,3} |
-| name | string |  | true |  |
+| id |  string |  | true | \w{2,3} |
+| name |  string |  | true |  |
 
 ### Response code: 404
 Sent if no object for the passed `id` was found.
@@ -92,7 +103,7 @@ Sent if no object for the passed `id` was found.
 ##### *Error*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| message | string |  | true |  |
+| message |  string |  | true |  |
 
 ---
 

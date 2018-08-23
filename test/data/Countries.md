@@ -2,8 +2,17 @@
 
 ---
 
+* Countries
+    *GET
+
+---
+
 ## Countries
 Work with `Country` objects for all countries in the system. All `name` properties get automatically translated by the service depending on a request's `accept-language` header.
+
+#### Available endpoints
+
+* [/countries](countries)* [/countries/{id}](countriesid)
 
 ### /countries
 
@@ -42,15 +51,17 @@ List of `Country` objects index by the id of a country.
 ##### *CountryMap*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| // | object | Object representing a single country item. | true |  |
+| // |  object | Object representing a single country item. | true |  |
+
+//:
 
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| id | string | Two character country codes. | true | \w{2} |
-| alpha3Code | string | Alpha-3-Code | true | \w{3} |
-| number | integer | Number | true |  |
-| name | string | Translated name of a country. | true |  |
-| countryCode | string | Internation phone dial country code. | true |  |
+| id |  string | Two character country codes. | true | \w{2} |
+| alpha3Code |  string | Alpha-3-Code | true | \w{3} |
+| number |  integer | Number | true |  |
+| name |  string | Translated name of a country. | true |  |
+| countryCode |  string | Internation phone dial country code. | true |  |
 
 ---
 
@@ -88,11 +99,11 @@ Object representing a single country item.
 ##### *Country*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| id | string | Two character country codes. | true | \w{2} |
-| alpha3Code | string | Alpha-3-Code | true | \w{3} |
-| number | integer | Number | true |  |
-| name | string | Translated name of a country. | true |  |
-| countryCode | string | Internation phone dial country code. | true |  |
+| id |  string | Two character country codes. | true | \w{2} |
+| alpha3Code |  string | Alpha-3-Code | true | \w{3} |
+| number |  integer | Number | true |  |
+| name |  string | Translated name of a country. | true |  |
+| countryCode |  string | Internation phone dial country code. | true |  |
 
 ### Response code: 404
 Sent if no object for the passed `id` was found.
@@ -108,7 +119,7 @@ Sent if no object for the passed `id` was found.
 ##### *Error*:
 | Name | Type | Description | Required | Pattern |
 |:-----|:----:|:------------|:--------:|--------:|
-| message | string |  | true |  |
+| message |  string |  | true |  |
 
 ---
 

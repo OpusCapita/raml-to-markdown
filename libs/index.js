@@ -114,6 +114,7 @@ module.exports.render = function(config)
                         item.resources = [ res ];
 
                         var rendered = nunjucks.render(templateFile, item);
+                        
                         rendered = (contentFilter && contentFilter(rendered)) || rendered;
 
                         const filePath = pathJs.join(outputPath, res.displayName + outputExt);
