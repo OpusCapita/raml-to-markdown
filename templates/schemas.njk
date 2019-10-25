@@ -11,7 +11,7 @@
 ##### List of *{{ schema.items.displayName }}*:
 
 {% set properties=schema.items.properties %}{% include "./properties.njk" %}
-{% else %}
+{% elif schema.properties %}
 ##### *{{ schema.displayName }}*:
 {% set properties=schema.properties %}{% include "./properties.njk" %}
 {% endif %}
